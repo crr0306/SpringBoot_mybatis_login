@@ -3,38 +3,37 @@ package com.spring.base.controller.other;
 import com.spring.base.controller.other.req.ReqCreateQrCodeDto;
 import com.spring.base.utils.QrCodeUtils;
 import io.swagger.annotations.Api;
-import lombok.extern.slf4j.Slf4j;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.util.ResourceUtils;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.OutputStream;
 
 /**
  *
  */
-@Slf4j
+
 @RestController
 @Api(value = "Hello springboot接口")
 public class HelloController {
 
+    public static final Logger logger = LoggerFactory.getLogger(HelloController.class);
 
     @PostMapping("/")
     public String index() {
-        log.info("hello");
+        logger.info("hello");
         return "Greetings from Spring Boot!";
     }
 
     /**
      * 二维码-- 设备id--设备信息
+     *
      * @return
      */
     @PostMapping("/generateQRCode")
     public void generateQRCode(@RequestBody ReqCreateQrCodeDto reqDto) {
-        log.info("hello");
+        logger.info("generateQRCode");
 
         try {
             //从配置文件读取需要生成二维码的连接

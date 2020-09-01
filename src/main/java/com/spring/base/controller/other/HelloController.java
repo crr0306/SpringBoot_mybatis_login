@@ -1,12 +1,15 @@
 package com.spring.base.controller.other;
 
+import com.spring.base.bean.User;
 import com.spring.base.controller.other.req.ReqCreateQrCodeDto;
+import com.spring.base.service.UserService;
 import com.spring.base.utils.QrCodeUtils;
 import io.swagger.annotations.Api;
 
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -44,6 +47,15 @@ public class HelloController {
             e.printStackTrace();
         }
 
+    }
+    @Autowired
+    private UserService userService;
+
+    @RequestMapping("getUser/{id}")
+    public User GetUser(@PathVariable int id){
+        User user=userService.Sel(id);
+        logger.info(user.getPassWord());
+        return user;
     }
 
 }

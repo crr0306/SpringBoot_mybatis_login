@@ -12,3 +12,5 @@
 4.2xss攻击
 5、redis：依赖包、配置文件、配置类、工具类（
 https://segmentfault.com/a/1190000020314044
+6、结合mybatis
+依赖包、配置文件、注解（启动类和）、（bean,service、mapper）类、xml

@@ -2,6 +2,7 @@ package com.spring.base.intercepter;
 
 
 import com.spring.base.utils.Constant;
+import com.spring.base.utils.RedisUtil;
 import com.spring.base.utils.errorcode.ServiceError;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -17,8 +18,8 @@ import java.io.PrintWriter;
 
 public class AdminTokenInterceptor implements HandlerInterceptor {
     private static final Logger logger = LoggerFactory.getLogger(AdminTokenInterceptor.class);
-//    @Autowired
-//    private ICacheService cacheService;
+    @Autowired
+    private RedisUtil redisUtil;
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {

@@ -4,6 +4,7 @@ import com.spring.base.bean.User;
 import com.spring.base.controller.other.req.ReqCreateQrCodeDto;
 import com.spring.base.service.UserService;
 import com.spring.base.utils.QrCodeUtils;
+import com.spring.base.utils.RedisUtil;
 import io.swagger.annotations.Api;
 
 
@@ -50,11 +51,13 @@ public class HelloController {
     }
     @Autowired
     private UserService userService;
-
+    @Autowired
+    private RedisUtil redisUtil;
     @RequestMapping("getUser/{id}")
     public User GetUser(@PathVariable int id){
+        redisUtil.set("userId",id);
         User user=userService.Sel(id);
-        logger.info(user.getPassWord());
+        logger.info("redis取得：{}",redisUtil.get("userId").toString());
         return user;
     }
 

@@ -13,22 +13,6 @@ public class InterceptorConfig extends WebMvcConfigurerAdapter {
         registry.addInterceptor(getHeaderTokenInterceptor())
                 .addPathPatterns("/**")
                 .excludePathPatterns("/user/sendSms",
-                        "/user/smsLogin",
-                        "/user/login",
-                        "/user/logout",
-                        "/user/validateSms",
-                        "/user/resetPassword",
-                        "/swagger-resources/configuration/ui",
-                        "/swagger-resources",
-                        "/null",
-                        "/v2/api-docs",
-                        "/version/appUpdate",
-                        "/version/deviceUpdate",
-                        "/user/delSsoByPhone",
-                        "/user/recoverConvertAuth",
-                        "/user/getConvertAuth",
-                        "/audio/**",
-                        "/usertext/**",
                         "/admin/**"
                         );
         registry.addInterceptor(getParamTokenInterceptor())

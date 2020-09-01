@@ -7,4 +7,8 @@
 2.2 配置logback-spring.xml
 
 3、拦截器
-4、过滤器以及sql注入攻击
+4、过滤器：
+4.1sql注入：
+4.2xss攻击
+5、redis：依赖包、配置文件、配置类、工具类（
+https://segmentfault.com/a/1190000020314044
